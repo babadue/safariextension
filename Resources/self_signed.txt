@@ -1,0 +1,11 @@
+From macOS terminal:
+
+To generate a private key:
+openssl genrsa -out private.key 2048
+
+To create a certificate signing request (CSR):
+openssl req -new -key private.key -out request.csr
+
+To generate the self-signed certificate:
+openssl x509 -req -days 365 -in request.csr -signkey private.key -out certificate.crt
+
